@@ -426,12 +426,12 @@ export default function HomePage() {
       </section>
 
       {/* Caravans by Manufacturer Section */}
-      <section className="caravans_by_manufacturer related-products section-padding">
+      {/* <section className="caravans_by_manufacturer related-products section-padding">
         <Manufactures />
-      </section>
+      </section> */}
 
       {/* Latest Blog Section */}
-      <BlogSection />
+      {/* <BlogSection /> */}
     </div>
 
   );

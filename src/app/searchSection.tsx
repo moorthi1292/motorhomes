@@ -495,11 +495,10 @@ const stateMeta: StateMeta = {
       </div>
       <div className="search_requirement_area">
         <div className="container">
-          <div className="row align-items-center justify-content-start">
+          {/* <div className="row align-items-center justify-content-start">
             <div className="col-lg-12">
               <div className="section-head search_home text-center">
-                {/* Bootstrap Pills Navigation */}
-                <ul className="nav nav-pills" id="pills-tab" role="tablist">
+                 <ul className="nav nav-pills" id="pills-tab" role="tablist">
                   <li className="nav-item" role="presentation">
                     <button
                       className="nav-link active"
@@ -530,10 +529,8 @@ const stateMeta: StateMeta = {
                   </li>
                 </ul>
 
-                {/* Bootstrap Tab Content */}
-                <div className="tab-content" id="pills-tabContent">
-                  {/* --- Tab 1 --- */}
-                  <div
+                 <div className="tab-content" id="pills-tabContent">
+                   <div
                     className="tab-pane fade show active"
                     id="pills-find"
                     role="tabpanel"
@@ -634,16 +631,14 @@ const stateMeta: StateMeta = {
                     </div>
                   </div>
 
-                  {/* --- Tab 2 --- */}
-                  <div
+                   <div
                     className="tab-pane fade"
                     id="pills-smart"
                     role="tabpanel"
                     aria-labelledby="pills-smart-tab"
                   >
                     <div className="content-info pb-0">
-                      {/* overlay to close */}
-                      <div
+                       <div
                         className="overlay_search"
                         style={{
                           display: isSuggestionBoxOpen ? "block" : "none",
@@ -651,8 +646,7 @@ const stateMeta: StateMeta = {
                         onClick={closeSuggestions}
                       />
 
-                      {/* search box */}
-                      <div className="search-container">
+                       <div className="search-container">
                         <div className="search-wrapper">
                           <i className="bi bi-search search-icon" />
                           <input
@@ -683,8 +677,7 @@ const stateMeta: StateMeta = {
                           </div>
                         </div>
 
-                        {/* dropdown */}
-                        <div
+                         <div
                           className="suggestions"
                           style={{
                             display: isSuggestionBoxOpen ? "block" : "none",
@@ -740,7 +733,7 @@ const stateMeta: StateMeta = {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="display_ad">
             {false && matchedBanners.map((banner, index) => (
               <a
