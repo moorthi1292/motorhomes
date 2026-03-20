@@ -1,20 +1,18 @@
 "use client";
-
-import { useEffect, useState, useRef } from "react";
+ import { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 //  import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "./main.css?=12";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import "./main.css";
+
+
 import "swiper/css";
 import "swiper/css/navigation";
-import Link from "next/link";
+
 import Image from "next/image";
 import BlogSection from "../blogSection";
 import PostRequirement from "../postRequirement";
 import Manufactures from "../manufacture";
-import SearchSection from "../searchSection";
-import { fetchSleepBands } from "@/api/homeApi/sleep/api";
+ import { fetchSleepBands } from "@/api/homeApi/sleep/api";
 import { fetchRegion } from "@/api/homeApi/region/api";
 import { fetchManufactures } from "@/api/homeApi/manufacture/api";
 import { fetchPriceBasedCaravans } from "@/api/homeApi/price/api";
@@ -22,6 +20,11 @@ import { fetchAtmBasedCaravans } from "@/api/homeApi/weight/api";
 import { fetchLengthBasedCaravans } from "@/api/homeApi/length/api";
 import { fetchUsedCaravansList } from "@/api/homeApi/usedCaravanList/api";
 import { fetchStateBasedCaravans } from "@/api/homeApi/state/api";
+import dynamic from "next/dynamic";
+
+const SearchSection = dynamic(() => import("../searchSection"), {
+  ssr: false,
+});
 interface Item {
   label: string;
   capacity: number;
@@ -62,7 +65,7 @@ export default function HomePage() {
           fetchLengthBasedCaravans(),
           fetchPriceBasedCaravans(),
           fetchUsedCaravansList(),
-          fetchStateBasedCaravans(),
+          fetchStateBasedCaravans()
           ,
         ]);
 
@@ -89,39 +92,36 @@ export default function HomePage() {
   //   }
   //   loadBands();
   // }, []);
+ useEffect(() => {
+  if (typeof window === "undefined") return;
 
-  useEffect(() => {
-    if (typeof window === "undefined" || typeof document === "undefined")
-      return;
+  const storedIndex = Number.parseInt(
+    window.localStorage.getItem("ad_index") || "0",
+    10
+  );
 
-    const storedIndex = Number.parseInt(
-      window.localStorage.getItem("ad_index") || "0",
-      10
-    );
-    setAdIndex(Number.isFinite(storedIndex) ? storedIndex : 0);
+  setAdIndex(Number.isFinite(storedIndex) ? storedIndex : 0);
 
-    const container = bannerSectionRef.current;
-    if (container) {
-      const items = container.querySelectorAll<HTMLElement>(".items");
-      const safeIndex =
-        items.length > 0 ? Math.min(storedIndex, items.length - 1) : 0;
+  const container = bannerSectionRef.current;
+  if (container) {
+    const items = container.querySelectorAll<HTMLElement>(".items");
 
-      items.forEach((item, i) => {
-        item.style.display = i === safeIndex ? "block" : "none";
-      });
+    const safeIndex =
+      items.length > 0 ? Math.min(storedIndex, items.length - 1) : 0;
 
-      const modulo = items.length || 4;
-      const next = (safeIndex + 1) % modulo;
-      window.localStorage.setItem("ad_index", String(next));
-    }
+    items.forEach((item, i) => {
+      item.style.display = i === safeIndex ? "block" : "none";
+    });
 
-    return () => {
-      if (typeof document !== "undefined") {
-        document.body.style.overflow = "auto";
-      }
-    };
-  }, []);
+    const modulo = items.length || 4;
+    const next = (safeIndex + 1) % modulo;
+    window.localStorage.setItem("ad_index", String(next));
+  }
 
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, []);
   // Handle banner ad rotation
   useEffect(() => {
     const storedIndex = Number.parseInt(
