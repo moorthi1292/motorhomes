@@ -43,6 +43,14 @@ interface Item {
   state: string;
 }
 
+
+type StateMeta = {
+  [key: string]: {
+    code: string;
+    image: string;
+  };
+};
+
 type CategorySection = {
   title: string;
   items: {
@@ -162,7 +170,7 @@ const formatBlogDate = (dateString: string) => {
     year: "numeric",
   });
 };
-  const stateMeta = {
+const stateMeta: StateMeta = {
     "victoria": { code: "VIC", image: "/images/vic_map.svg" },
     "new-south-wales": { code: "NSW", image: "/images/nsw_map.svg" },
     "queensland": { code: "QLD", image: "/images/qld_map.svg" },

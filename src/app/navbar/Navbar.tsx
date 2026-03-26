@@ -51,7 +51,7 @@ export default function Navbar() {
   ];
   // Close dropdown on outside click
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: any) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setOpen(false);
       }
@@ -89,7 +89,7 @@ export default function Navbar() {
           <div className="logo_left">
             <a className="navbar-brand" href="/">
               <Image
-                src="/images/cfs-logo-black.svg?=1"
+                src="/images/mfs-logo.svg?=1"
                 alt="Caravans For Sale"
                 width={150}
                 height={50}

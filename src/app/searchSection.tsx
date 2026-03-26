@@ -11,6 +11,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 import {
   fetchHomeSearchList, // GET /home_search (base list)
   fetchKeywordSuggestions, // GET /home_search/?keyword=<q> (typed list)
@@ -64,6 +66,15 @@ type Item = {
 } & Record<string, unknown>;
 
 
+
+type StateMeta = {
+  [key: string]: {
+    code: string;
+    image: string;
+  };
+};
+
+
 interface SearchSectionProps {
   sleepBands: TabsItem[];
   regionBands: TabsItem[];
@@ -106,7 +117,7 @@ console.log("homestate", stateBands)
   const isSearchEnabled = category || location || conditionValue;
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const stateMeta = {
+const stateMeta: StateMeta = {
     victoria: { code: "VIC", image: "/images/vic_map.svg?=1" },
     "new-south-wales": { code: "NSW", image: "/images/nsw_map.svg?=1" },
     queensland: { code: "QLD", image: "/images/qld_map.svg?=1" },
@@ -363,13 +374,13 @@ console.log("homestate", stateBands)
     if (!isSuggestionBoxOpen) setIsSuggestionBoxOpen(true);
   };
 
-  useEffect(() => {
-    // dynamically import bootstrap JS only in the browser
-    if (typeof window === "undefined") return;
-    import("bootstrap/dist/js/bootstrap.bundle.min.js").catch((err) =>
-      console.error("Failed to load bootstrap JS", err),
-    );
-  }, []);
+  // useEffect(() => {
+  //   // dynamically import bootstrap JS only in the browser
+  //   if (typeof window === "undefined") return;
+  //   import("bootstrap/dist/js/bootstrap.bundle.min.js").catch((err) =>
+  //     console.error("Failed to load bootstrap JS", err),
+  //   );
+  // }, []);
   //   const navigateWithKeyword = (kwRaw: string) => {
   //     const kw = kwRaw.trim();
   //     if (!kw) return;
@@ -453,10 +464,10 @@ console.log("homestate", stateBands)
           <div className="col-lg-12">
             <div className="section-head text-center">
               <h1 className="divide-orange">
-                Browse New &amp; Used Caravans For Sale
+                Browse New &amp; Used Motohomes For Sale
               </h1>
               <p>
-                Find your ideal caravan from thousands of new and used listings
+                Find your ideal motohome from thousands of new and used listings
                 across Australia’s top brands, dealers, and private sellers.
                 Search by type, condition, location, and budget.
               </p>
@@ -465,12 +476,11 @@ console.log("homestate", stateBands)
         </div>
       </div>
       <div className="search_requirement_area">
-        <div className="container">
+        {/* <div className="container">
           <div className="row align-items-center justify-content-start">
             <div className="col-lg-12">
               <div className="section-head search_home text-center">
-                {/* Bootstrap Pills Navigation */}
-                <ul className="nav nav-pills" id="pills-tab" role="tablist">
+                 <ul className="nav nav-pills" id="pills-tab" role="tablist">
                   <li className="nav-item" role="presentation">
                     <button
                       className="nav-link active"
@@ -501,10 +511,8 @@ console.log("homestate", stateBands)
                   </li>
                 </ul>
 
-                {/* Bootstrap Tab Content */}
-                <div className="tab-content" id="pills-tabContent">
-                  {/* --- Tab 1 --- */}
-                  <div
+                 <div className="tab-content" id="pills-tabContent">
+                   <div
                     className="tab-pane fade show active"
                     id="pills-find"
                     role="tabpanel"
@@ -605,16 +613,14 @@ console.log("homestate", stateBands)
                     </div>
                   </div>
 
-                  {/* --- Tab 2 --- */}
-                  <div
+                   <div
                     className="tab-pane fade"
                     id="pills-smart"
                     role="tabpanel"
                     aria-labelledby="pills-smart-tab"
                   >
                     <div className="content-info pb-0">
-                      {/* overlay to close */}
-                      <div
+                       <div
                         className="overlay_search"
                         style={{
                           display: isSuggestionBoxOpen ? "block" : "none",
@@ -622,8 +628,7 @@ console.log("homestate", stateBands)
                         onClick={closeSuggestions}
                       />
 
-                      {/* search box */}
-                      <div className="search-container">
+                       <div className="search-container">
                         <div className="search-wrapper">
                           <i className="bi bi-search search-icon" />
                           <input
@@ -654,13 +659,12 @@ console.log("homestate", stateBands)
                           </div>
                         </div>
 
-                        {/* dropdown */}
-                        <div
+                         <div
                           className="suggestions"
                           style={{
                             display: isSuggestionBoxOpen ? "block" : "none",
-                            maxHeight: "300px", // ← scroll height limit
-                            overflowY: "auto", // ← enables scrolling
+                            maxHeight: "300px",  
+                            overflowY: "auto",  
                           }}
                           role="listbox"
                         >
@@ -738,7 +742,7 @@ console.log("homestate", stateBands)
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Caravans by State Section */}
@@ -802,7 +806,7 @@ console.log("homestate", stateBands)
                                   className="view_all"
                                   href={`/listings${item.permalink}`}
                                 >
-                                  View All Caravans for Sale in {stateCode}{" "}
+                                  View All Motohomes for Sale in {stateCode}{" "}
                                   <i className="bi bi-chevron-right"></i>
                                 </a>
                               </div>
@@ -825,7 +829,7 @@ console.log("homestate", stateBands)
       <div className="quick_links_tabs">
         <div className="container">
           <div className="section-head mb-2 py-2">
-            <h2>Popular Caravan Searches Across Australia</h2>
+            <h2>Popular Motohome Searches Across Australia</h2>
           </div>
           <div className="custom-tabs-wrap">
             {/* Tabs */}

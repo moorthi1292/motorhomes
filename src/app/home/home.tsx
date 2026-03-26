@@ -170,7 +170,7 @@ console.log("homestate", stateBands)
             <div className="row">
               <div className="col">
                 <div className="section-head mb-4">
-                  <h2>Explore all things caravans</h2>
+                  <h2>Explore all things motohomes</h2>
                 </div>
               </div>
             </div>
@@ -316,9 +316,9 @@ console.log("homestate", stateBands)
                     <div className="explore-boxes">
                       {/* Box 1 */}
                       <div className="explore-box active">
-                        <h3>See New Caravan Listings</h3>
+                        <h3>See New Motohome Listings</h3>
                         <p>
-                          Browse the latest new caravans from top dealerships in Australia.
+                          Browse the latest new motohomes from top dealerships in Australia.
                         </p>
                         <a href="/listings/new-condition/" className="btn btn-primary">
                           Browse New Listings
@@ -328,7 +328,7 @@ console.log("homestate", stateBands)
 
                       {/* Box 2 */}
                       <div className="explore-box">
-                        <h3>Used Caravans For Sale</h3>
+                        <h3>Used Motohomes For Sale</h3>
                         <p>
                           Find great deals on quality used motorhomes for saleby dealers and
                           private sellers.
@@ -341,9 +341,9 @@ console.log("homestate", stateBands)
 
                       {/* Box 3 */}
                       <div className="explore-box">
-                        <h3>See All Caravans</h3>
+                        <h3>See All Motohomes</h3>
                         <p>
-                          Explore the full range of new and used caravans across Australia.
+                          Explore the full range of new and used motohomes across Australia.
                         </p>
                         <a href="/listings/" className="btn btn-primary">
                           Start Searching
@@ -366,14 +366,14 @@ console.log("homestate", stateBands)
                       <div className="row align-items-center">
                         <div className="col-lg-6">
                           <div className="content">
-                            <h3 className="title">Sell Your Caravan Today!</h3>
+                            <h3 className="title">Sell Your motohome Today!</h3>
 
                             <p className="desc">
                               Reach thousands of potential buyers in minutes.
                               <br />
-                              List your motorhome for saleon <a href="https://www.caravansforsale.com.au">CaravansForSale.com.au,</a>
+                              List your motorhome for saleon <a href="https://motorhomes.vercel.app/">MotohomesForSale.com.au,</a>
                               <br />
-                              the trusted marketplace for Aussie caravan owners.
+                              the trusted marketplace for Aussie motohome owners.
                             </p>
 
                             {/* <Link href="#" className="btn">
@@ -422,12 +422,12 @@ console.log("homestate", stateBands)
         </section>
 
         {/* Caravans by Manufacturer Section */}
-        <section className="caravans_by_manufacturer related-products section-padding">
+        {/* <section className="caravans_by_manufacturer related-products section-padding">
           <Manufactures />
-        </section>
+        </section> */}
 
         {/* Latest Blog Section */}
-        <BlogSection blogPosts ={homeblog} />
+        {/* <BlogSection blogPosts ={homeblog} /> */}
       </div>
 
     );

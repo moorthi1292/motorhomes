@@ -281,7 +281,7 @@ const postTrackClick = async (product_id: number) => {
     }),
   });
 };
-  const handleProductClick = (id) => {
+  const handleProductClick = (id: any) => {
       postTrackClick(id); 
     // Allow product page to show "Back to Search"
     sessionStorage.setItem("cameFromListings", "true");
