@@ -130,7 +130,7 @@ console.log("homestate", stateBands)
         key: "Region",
         label: "Location",
         cards: regionBands.map((item) => ({
-          title: "Caravans for Sale in " + item.region,
+          title: "Motorhomes for Sale in " + item.region,
           sub: `${item.caravan_count ?? 0}`,
           url: `/listings/${item.permalink}`,
         })),
@@ -139,7 +139,7 @@ console.log("homestate", stateBands)
         key: "price",
         label: "Price",
         cards: priceBands.map((item) => ({
-          title: "Caravans for Sale " + item.short_label,
+          title: "Motorhomes for Sale " + item.short_label,
           sub: `${item.caravan_count ?? 0}`,
           url: `/listings/${item.permalink}`,
         })),
@@ -148,7 +148,7 @@ console.log("homestate", stateBands)
         key: "Weight",
         label: "Weight",
         cards: atmBands.map((item) => ({
-          title: "Caravans for Sale " + item.short_label,
+          title: "Motorhomes for Sale " + item.short_label,
           sub: `${item.caravan_count ?? 0}`,
           url: `/listings/${item.permalink}`,
         })),
@@ -157,7 +157,7 @@ console.log("homestate", stateBands)
         key: "Sleep",
         label: "Sleep",
         cards: sleepBands.map((item) => ({
-          title: "Caravans for Sale " + item.short_label,
+          title: "Motorhomes for Sale " + item.short_label,
           sub: `${item.caravan_count ?? 0}`,
           url: `/listings/${item.permalink}`,
         })),
@@ -166,7 +166,7 @@ console.log("homestate", stateBands)
         key: "Length",
         label: "Length",
         cards: lengthBands.map((item) => ({
-          title: "Caravans for Sale " + item.short_label,
+          title: "Motorhomes for Sale " + item.short_label,
           sub: `${item.caravan_count ?? 0}`,
           url: `/listings/${item.permalink}`,
         })),
@@ -184,7 +184,7 @@ console.log("homestate", stateBands)
         key: "Manufacturer",
         label: "Manufacturer",
         cards: manufactureBands.map((item) => ({
-          title: item.short_label + " Caravans for Sale",
+          title: item.short_label + " Motorhomes for Sale",
           sub: `${item.caravan_count ?? 0}`,
           url: `/listings/${item.permalink}`,
         })),
