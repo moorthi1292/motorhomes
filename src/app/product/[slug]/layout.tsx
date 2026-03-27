@@ -9,10 +9,10 @@ import './product.css'
 type RouteParams = { slug: string };
 
 async function fetchProductDetail(slug: string) {
-  const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE!;
+  const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE!;
   try {
     const res = await fetch(
-      `${API_BASE}/product-detail-new/?slug=${encodeURIComponent(slug)}`,
+      `${API_BASE}/product-detail/${encodeURIComponent(slug)}`,
       { cache: "no-store", headers: { Accept: "application/json" } }
     );
     if (!res.ok) return null;
@@ -31,9 +31,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const data = await fetchProductDetail(slug);
-  const sku =  data?.product?.sku || "";
-        const base = `https://caravansforsale.imagestack.net/800x600/${sku}/${slug}`;
-        const ogImage = `${base}main1.avif`;
+  const ogImage: string = Array.isArray(data?.image_format)
+  ? data.image_format[0] ?? ""
+  : "";
 
 console.log("image", ogImage)
   if (!data || Object.keys(data).length === 0) {

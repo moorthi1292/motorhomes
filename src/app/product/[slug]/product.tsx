@@ -1,3 +1,4 @@
+
  "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -60,7 +61,7 @@ type ProductData = {
   title?: string;
   location_shortcode?: string;
   sku?: string;
-  image_url?: string[];
+  image_format?: string[];
 };
 
 interface BlogPost extends HomeBlogPost {
@@ -81,9 +82,7 @@ export default function ClientLogger({
   // const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   console.log("datap", data);
   const router = useRouter();
-  const IMAGE_BASE = "https://caravansforsale.imagestack.net/800x600/";
-  const IMAGE_EXT = ".avif";
-
+  
   // const [activeImage, setActiveImage] = useState<string>("");
   const pd: ApiData = data?.data ?? {};
   console.log("pd", pd);
@@ -91,8 +90,8 @@ export default function ClientLogger({
   const blogPosts: BlogPost[] = Array.isArray(data?.data?.latest_blog_posts)
     ? data.data.latest_blog_posts!
     : [];
-  const apiImages: string[] = Array.isArray(productDetails.image_url)
-    ? productDetails.image_url.filter(Boolean)
+  const apiImages: string[] = Array.isArray(productDetails.image_format)
+    ? productDetails.image_format.filter(Boolean)
     : [];
 
   const relatedProducts: ProductData[] = Array.isArray(data?.data?.related)
@@ -230,11 +229,13 @@ export default function ClientLogger({
 
   // ---------- spec fields with API urls ----------
   const specFields: SpecItem[] = [
-    {
-      label: "Type",
-      value: categoryNames.join(", ") || getAttr("Type"),
-      url: findAttr("Type")?.url,
-    },
+    // {
+    //   label: "Type",
+    //   value: categoryNames.join(", ") || getAttr("Type"),
+    //   url: findAttr("Type")?.url,
+    // },
+        { label: "Engine Make", value: getAttr("Engine Make"), url: findAttr("Engine Make")?.url },
+
     { label: "Make", value: getAttr("Make"), url: findAttr("Make")?.url },
     { label: "Model", value: getAttr("Model"), url: findAttr("Model")?.url },
     { label: "Year", value: getAttr("Years"), url: findAttr("Years")?.url },
@@ -540,24 +541,9 @@ export default function ClientLogger({
 
   // const [activeImage, setActiveImage] = useState(main);
 
-  // ✅ Build image URLs from API image_url array
-  const productSubImage: string[] = useMemo(() => {
-    const raw = productDetails.image_url;
+  // ✅ Build image URLs from API image_format array
 
-    console.log("API image_url:", raw); // Debug
-
-    if (Array.isArray(raw) && raw.length > 0) {
-      const urls = raw
-        .filter((v) => typeof v === "string" && v.trim() !== "")
-        .map((key) => `${IMAGE_BASE}${key}${IMAGE_EXT}`);
-
-      console.log("Built image URLs:", urls); // Debug
-      return urls;
-    }
-
-    return [];
-  }, [productDetails.image_url]);
-
+  
   // ✅ Set active image when productSubImage loads
   useEffect(() => {
     if (apiImages.length > 0) {

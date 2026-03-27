@@ -1,4 +1,4 @@
-const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
+const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE;
 
 interface Filters {
   page?: number;
@@ -54,6 +54,7 @@ export type Item = {
   model?: string;
   image_format?: string[];
   image_url?: string[];
+  engine_make?: string;
 
 };
 
@@ -170,7 +171,7 @@ export const fetchListings = async (
   const s = normalizeQuery(search);
   if (s) params.append("search", s);
 
-  const url = `${API_BASE}/new_optimize_code?${params.toString()}`;
+  const url = `${API_BASE}/product-list?${params.toString()}`;
   const res = await fetch(url);
   console.log("[list API] GET", res.url);
 

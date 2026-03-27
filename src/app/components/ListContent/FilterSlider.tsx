@@ -702,7 +702,7 @@ const [states, setStates] = useState<StateOption[]>(
             navigation
             className="filter-swiper"
           >
-            <SwiperSlide style={{ width: "auto" }}>
+            {/* <SwiperSlide style={{ width: "auto" }}>
               <button
                 className={`tag ${currentFilters.category ? "active" : ""}`}
                 onClick={handleTypeOpen}
@@ -723,7 +723,7 @@ const [states, setStates] = useState<StateOption[]>(
                   "Caravan Type"
                 )}
               </button>
-            </SwiperSlide>
+            </SwiperSlide> */}
 
             <SwiperSlide style={{ width: "auto" }}>
               <button

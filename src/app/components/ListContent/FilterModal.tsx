@@ -2051,7 +2051,7 @@ fetch(`/api/params-count?${catParams.toString()}`, { signal })
           {/* Filters */}
           <div className="filter-body">
             <>
-              <div className="filter-item pt-0" ref={categoryRef}>
+              {/* <div className="filter-item pt-0" ref={categoryRef}>
                 <h4>Caravan Type</h4>
                 <ul className="category-list">
                   {categoryCounts.length === 0 ? (
@@ -2099,7 +2099,7 @@ fetch(`/api/params-count?${catParams.toString()}`, { signal })
                     ))
                   )}
                 </ul>
-              </div>
+              </div> */}
               <div className="filter-item">
                 <h4>Location</h4>
                 <div className="location-list">

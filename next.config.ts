@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "admin.caravansforsale.com.au",
       },
+        {
+        protocol: "https",
+        hostname: "admin.motorhomesforsale.com.au",
+      },
       {
         protocol: "https",
         hostname: "caravansforsale.b-cdn.net",
@@ -57,9 +61,9 @@ const nextConfig: NextConfig = {
     // ❌ removed staleTimes (not needed now)
   },
 
-  compiler: {
-    removeConsole: true,
-  },
+  // compiler: {
+  //   removeConsole: true,
+  // },
 
   async redirects() {
     return [

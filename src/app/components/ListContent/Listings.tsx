@@ -72,6 +72,8 @@
     manufacturer?: string;
     is_exclusive?: boolean;
     is_premium?: boolean;
+      engine_make?: string;
+
     image_url?: string[];
   }
 
@@ -169,6 +171,7 @@ type ProductListResponse = {
       is_premium: item.is_premium,
       image_format: item.image_format || [],
       image_url: item.image_url || [],
+  engine_make: item.engine_make,
 
       // keep extra props
     }));

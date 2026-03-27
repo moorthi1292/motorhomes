@@ -47,6 +47,7 @@ interface Product {
   is_exclusive?: boolean;
   is_premium?: boolean;
   image_url?: string[];
+  engine_make?: string;
 }
 
 interface Pagination {
@@ -198,7 +199,7 @@ export default function ListingContent({
 
   console.log(
     "data-main",
-    fetauredProducts,
+     fetauredProducts,
     isPremiumLoading,
     isFeaturedLoading,
     isMainLoading,
@@ -429,14 +430,13 @@ const postTrackClick = async (product_id: number) => {
   }, [showInfo, showContact]);
 
   // Example placeholder function for product links
-
   // const imageUrl = "public/favicon.ico";
   const getHref = (p: Product) => {
+    console.log("slug", p.slug)
     const slug = p.slug?.trim() || toSlug(p.name);
     return slug ? `/product/${slug}/` : ""; // trailing slash optional
   };
 
-  console.log("data", exculisiveProducts);
 
   const orderby = currentFilters.orderby ?? "featured";
   useEffect(() => {
@@ -474,6 +474,7 @@ const postTrackClick = async (product_id: number) => {
   const { matchedBanners, isMobile } = useBanners();
   const { bannerRefs, trackClick } = useBannerTracking(matchedBanners);
   const rightBanners = matchedBanners.filter((b) => b.position === "right");
+  console.log("mergedProducts", mergedProducts);
 
   return (
     <>
@@ -746,14 +747,22 @@ const postTrackClick = async (product_id: number) => {
                                     </li>
                                   )} */}
 
-                                {item.categories &&
+                                {/* {item.categories &&
                                   item.categories.length > 0 && (
                                     <li className="attribute3_list">
                                       <span className="attribute3">
                                         {item.categories.slice(0, 2).join(", ")}
                                       </span>
                                     </li>
-                                  )}
+                                  )} */}
+
+  {item.engine_make &&  item.engine_make.length > 0 && (
+                                  <li>
+                                    <span className="attribute3">
+                                      {item.engine_make}
+                                    </span>
+                                  </li>
+                                )}
 
                                 {item.length && (
                                   <li>
