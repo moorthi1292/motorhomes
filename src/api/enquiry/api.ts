@@ -1,5 +1,5 @@
 // src/api/enquiry/api.ts
-const API_BASE = process.env.NEXT_PUBLIC_CFS_API_BASE;
+const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE;
 // e.g. "https://www.dev.caravansforsale.com.au/wp-json/cfs/v1"
 
 export type ProductEnquiryPayload = {
@@ -27,7 +27,7 @@ export type ProductEnquiryResponse = {
 export async function createProductEnquiry(
   payload: ProductEnquiryPayload
 ): Promise<ProductEnquiryResponse> {
-  if (!API_BASE) throw new Error("Missing NEXT_PUBLIC_CFS_API_BASE");
+  if (!API_BASE) throw new Error("Missing NEXT_PUBLIC_MFS_API_BASE");
 
   const res = await fetch(`${API_BASE}/product_enquiry`, {
     method: "POST",

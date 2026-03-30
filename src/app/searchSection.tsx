@@ -11,8 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
+ 
 import {
   fetchHomeSearchList, // GET /home_search (base list)
   fetchKeywordSuggestions, // GET /home_search/?keyword=<q> (typed list)
@@ -240,6 +239,13 @@ const stateMeta: StateMeta = {
 
     return () => clearInterval(interval);
   }, []);
+
+ useEffect(() => {
+  if (typeof window !== "undefined") {
+    // @ts-ignore
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }
+}, []);
 
   const handleSearch = () => {
     if (!category && !location && !conditionValue) {
