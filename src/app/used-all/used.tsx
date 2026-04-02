@@ -405,11 +405,11 @@ const stateMeta: StateMeta = {
           </div>
           <div className="content listing_region">
             <ul>
-              {regionBands.map((r, i) => (
-                <li key={i} >
+              {usedRegion.map((r, i) => (
+                <li key={i} style={{paddingRight:"10px"}} >
                   <a                               
                     href={`https://www.caravansforsale.com.au/listings/${r.permalink}/`}
- className="font-medium text-blue-600">
+ className="font-medium text-blue-600 pl-10">
                    {r.label}
                   </a>
                   <span className="block mt-1 text-sm text-gray-600">

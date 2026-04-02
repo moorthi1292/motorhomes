@@ -155,8 +155,8 @@ const stateMeta: StateMeta = {
         })),
       },
       {
-        key: "Weight",
-        label: "Weight",
+        key: "GVM",
+        label: "GVM",
         cards: atmBands.map((item) => ({
           title: "Motorhomes for Sale " + item.short_label,
           sub: `${item.caravan_count ?? 0}`,
