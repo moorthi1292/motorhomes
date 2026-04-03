@@ -66,7 +66,7 @@ export async function generateMetadata({
     title: { absolute: title },
     robots,
     verification: {
-      google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo", // ✅ Google site verification
+        // google: "6tT6MT6AJgGromLaqvdnyyDQouJXq0VHS-7HC194xEo", // ✅ Google site verification
     },
     description,
       openGraph: {
