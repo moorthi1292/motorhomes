@@ -2428,7 +2428,7 @@ fetch(`/api/params-count?${catParams.toString()}`, { signal })
                 </div>
               </div>
               <div className="filter-item">
-                <h4>ATM</h4>
+                <h4>GVM</h4>
                 <div className="location-list">
                   <div className="row">
                     <div className="col-lg-6">

@@ -874,7 +874,7 @@ const [states, setStates] = useState<StateOption[]>(
               >
                 {currentFilters.minKg || currentFilters.maxKg ? (
                   <>
-                    <small className="selected_label">ATM: </small>
+                    <small className="selected_label">GVM: </small>
                     {currentFilters.minKg && currentFilters.maxKg
                       ? `${Number(currentFilters.minKg).toLocaleString()} kg – ${Number(currentFilters.maxKg).toLocaleString()} kg`
                       : currentFilters.minKg
@@ -885,7 +885,7 @@ const [states, setStates] = useState<StateOption[]>(
                     </span>
                   </>
                 ) : (
-                  "ATM"
+                  "GVM"
                 )}
               </button>
             </SwiperSlide>
@@ -1524,7 +1524,7 @@ const [states, setStates] = useState<StateOption[]>(
         <div className="filter-overlay">
           <div className="filter-modal">
             <div className="filter-header">
-              <h3>ATM</h3>
+              <h3>GVM</h3>
               {closeBtn}
             </div>
             <div className="filter-body">

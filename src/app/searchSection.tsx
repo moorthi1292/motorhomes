@@ -43,6 +43,7 @@ interface TabsItem {
   short_label: string;
   short_count: string;
   region: string;
+  make: string;
 }
 
 type TabCard = {
@@ -194,7 +195,7 @@ const stateMeta: StateMeta = {
         key: "Manufacturer",
         label: "Manufacturer",
         cards: manufactureBands.map((item) => ({
-          title: item.short_label + " Motorhomes for Sale",
+          title: item.make + " Motorhomes for Sale",
           sub: `${item.caravan_count ?? 0}`,
           url: `/listings/${item.permalink}`,
         })),
