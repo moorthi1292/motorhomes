@@ -171,7 +171,7 @@ export const fetchListings = async (
   const s = normalizeQuery(search);
   if (s) params.append("search", s);
 
-  const url = `${API_BASE}/product-list?${params.toString()}`;
+  const url = `${API_BASE}/new_optimize_code?${params.toString()}`;
   const res = await fetch(url);
   console.log("[list API] GET", res.url);
 
